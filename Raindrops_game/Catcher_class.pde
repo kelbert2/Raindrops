@@ -1,7 +1,7 @@
 class Catcher {
   int d = 50;
   PVector loc;
-  Catcher(){
+  Catcher() {
   }
 
   void display() {
