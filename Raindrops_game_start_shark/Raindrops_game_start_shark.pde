@@ -10,6 +10,7 @@ void setup() {
   for   ( int i = 0; i < amount; i++) {
     drop[i] = new Raindrops();
   }
+  
 }
 void draw() {
   background(150);
@@ -25,7 +26,7 @@ void draw() {
   fish.swim();
 }
 void mousePressed() {  for (int i = 0; i < index; i++) {
- // drop[i].reset();
+  drop[i].reset();
       }
       if (millis() - oldTime == 5000) {
         oldTime = millis();
