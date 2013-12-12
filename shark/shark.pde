@@ -48,13 +48,13 @@ line(bigx+35*scale,bigy, bigx+100*scale, bigy);
 //jaw and teeth
 beginShape();
 arc(mouthx, mouthy,chinx,chiny, 0, PI);
-fill(255);
-triangle(mouthx,mouthy, mouthx+10*scale,mouthy, mouthx+5*scale,mouthy-10*scale);
-triangle(mouthx+10*scale,mouthy, mouthx+20*scale,mouthy, mouthx+15*scale,mouthy-10*scale);
 line(mouthx,mouthy, mouthx+chinx/2, mouthy);
 endShape();
 //eyes
 fill(eyecolor);
 ellipse(bigx+15*scale,bigy-15*scale,8*scale,10*scale);
+fill(255);
+triangle(bigx+35*scale,bigy, bigx+45*scale,bigy, bigx+40*scale,bigy-10*scale);
+triangle(bigx+45*scale,bigy, bigx+55*scale,bigy, bigx+50*scale,bigy-10*scale);
 endShape();
 }
