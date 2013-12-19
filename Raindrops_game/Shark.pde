@@ -69,5 +69,5 @@ class Shark {
     text("GAME OVER", width/2, height/2);
   }
 }
-}
+
 

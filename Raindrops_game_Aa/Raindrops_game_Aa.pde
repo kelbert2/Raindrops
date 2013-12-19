@@ -1,7 +1,10 @@
+  float puddleheight;
 Catcher bucket;
 Shark fish;
 int index = 1;
-int timeChange, currentTime, oldTime;
+int timeChange = 0;
+int currentTime = 0;
+int oldTime = 0;
 int level = 0;
 int amount = 5; //for Start_Screen and Raindrops
 Raindrops[] drop = new Raindrops[amount];
@@ -10,10 +13,10 @@ StartScreen ss;
 boolean run;
 void setup() {
   size(500, 500);
-  for   ( int i = 0; i < amount; i++) {
+  for   ( int i = 0; i < drop.length; i++) {
     drop[i] = new Raindrops();
   }
-  bucket = new Catcher();
+  bucket = new Catcher(drop);
   fish = new Shark(); //to swim by in the rising water as droplets miss when Game Over
   time = new Timer();
   ss = new StartScreen();
@@ -39,7 +42,7 @@ void draw() {
   background(170, 230, 245);
   currentTime =millis();
   timeChange = currentTime - oldTime;
-  if (timeChange >= 1000) {
+  if (timeChange >= 2000) {
     oldTime = currentTime;
     if (index < drop.length) {
       index++;
@@ -48,7 +51,10 @@ void draw() {
   for (int i = 0; i < index; i++) {
     drop[i].fall();
     drop[i].display();
-    drop[i].check(bucket);
+    
+  }
+  for (int i = 0; i < drop.length; i++) {
+  drop[i].check(bucket);
     bucket.catchDrop(drop[i]);
     drop[i].GameOver(fish);
   }

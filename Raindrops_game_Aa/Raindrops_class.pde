@@ -4,7 +4,7 @@ class Raindrops {
   float[] size = new float[amount];
   int i;
   int trans;
-  float puddleheight;
+
   float puddle = 0;
   Raindrops() {
     for ( i = 0; i < amount; i++) {

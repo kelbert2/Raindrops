@@ -7,16 +7,16 @@ class Catcher {
   }
 
   void display() {
-    
+
     noStroke();
     fill(255);
     ellipse(loc.x, loc.y, d, d);
   }
-  void catchDrop(Raindrops drop){
+  void catchDrop(Raindrops drop) {
     if (loc.dist(drop.loc) < d/2 + drop.d/2) {
-      drop.loc.set(-width,height*10);
-      drop.vel.set(0,0);
+      drop.loc.set(-width, height*10);
+      drop.vel.set(0, 0);
       score++;
     }
+  }
 }
-

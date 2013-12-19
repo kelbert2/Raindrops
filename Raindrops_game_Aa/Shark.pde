@@ -68,8 +68,11 @@ class Shark {
     textSize(50);
     textAlign(CENTER);
     text("GAME OVER", width/2, height/2);
+    textSize(25);
+    text("press any key to return", width/2, height/2+50);
     if (bigx> width+101){
       bigx=-101*scale; //appears back to swimming.
     }
   }
+ 
 }

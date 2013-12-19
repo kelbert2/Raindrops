@@ -24,16 +24,16 @@ void draw() {
   fish.display();
   fish.swim();
 }
-void mousePressed() {  for (int i = 0; i < index; i++) {
- // drop[i].reset();
-      }
-      if (millis() - oldTime == 5000) {
-        oldTime = millis();
+void mousePressed() {  
+  for (int i = 0; i < index; i++) {
+    // drop[i].reset();
+  }
+  if (millis() - oldTime == 5000) {
+    oldTime = millis();
     if (index < drop.length) {
-         index++;
-        }
+      index++;
+    }
+  }
 }
-
-
 
 

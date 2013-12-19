@@ -3,8 +3,8 @@ class Catcher {
   PVector loc;
   PImage buck, buckaroo;
   int score = 0;
-  Catcher() {
-    loc = new PVector(mouseX, height - d - 5);
+  Catcher(Raindrops[] rat) {
+    loc = new PVector(mouseX, height - puddleheight); //- d - 5
     d = 50;
     buck = loadImage("tool-tip-bucket.png");
   }
