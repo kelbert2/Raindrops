@@ -8,6 +8,8 @@ Raindrops[] drop = new Raindrops[amount];
 Timer time;
 StartScreen ss;
 boolean run;
+float puddle = 0;  
+float puddleheight;
 void setup() {
   size(500, 500);
   for   ( int i = 0; i < amount; i++) {
@@ -24,7 +26,7 @@ void draw() {
     background(170, 230, 245);
     currentTime =millis();
     timeChange = currentTime - oldTime;
-    if (timeChange >= 5000) {
+    if (timeChange >= 8000) {
       oldTime = currentTime;
       if (index < drop.length) {
         index++;
@@ -43,13 +45,25 @@ void draw() {
     for (int i = 0; i < index; i++) {
       drop[i].reset();
     }
-      } 
+    noStroke();
+    fill(100, 200, 250, 100); //bucket and shark will show through. tras 20
+    rect(0, height-puddle, width, puddle);  //Working: why there are multiple rectangles rising at diff rates, but I like the way it looks, so let's pretend it's intentional
+    //each raindrop missed spawns a new rectangle   
+    //reset
+    if (puddle >= height) {
+      puddle = 150;
+    }
+  } 
   else {
     ss.display();
-
   }
 }
-void keyPressed(){
+void keyPressed() {
   run = !run;
+  if (run) {
+    for   ( int i = 0; i < amount; i++) {
+      drop[i] = new Raindrops();
+    }
+  }
 }
 
