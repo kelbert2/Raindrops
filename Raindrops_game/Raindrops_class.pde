@@ -8,7 +8,8 @@ class Raindrops {
   float puddle = 0;
   Raindrops() {
     for ( i = 0; i < amount; i++) {
-      loc = new PVector(random(-1*size[1], width+size[i]), random(0, -1* size[i]));
+      loc = new PVector(random(-1*size[1], width+size[i]), 0);
+//      loc = new PVector(random(-1*size[1], width+size[i]), random(0, -1* size[i]));
       vel = new PVector(0, random(.5));
       acc = new PVector(0, .008); 
       size[i] = random(10, 15);
@@ -39,8 +40,9 @@ class Raindrops {
   }
   void update() {
     size[i] = random(10, 14);
+    // to make not reappear, set v or acc to zero, loc off screen. otherwise will increase in difficulty as miss more.
     loc.set(random(-1*size[i], width+size[i]), -1* size[i]); //problem is that it will return to being slow
-  }
+}
   void reset() {
     for (i = 0; i < amount; i++) {
       if (loc.y > puddleheight) { //the water level will rise when raindrops are missed
@@ -58,16 +60,20 @@ class Raindrops {
       noStroke();
       fill(100, 200, 250, 20); //bucket and shark will show through
       rect(0, height-puddle, width, puddle);  //Working: why there are multiple rectangles rising at diff rates, but I like the way it looks, so let's pretend it's intentional
+      //each raindrop missed spawns a new rectangle   
       //reset
       if (puddle == height) {
-        puddle = 0;
+        puddle = 150;
       }
     }
   }
   void GameOver(Shark sharky) {
     if (puddle >= 150) {
       sharky.display();
-      sharky.swim(); //shark will swim by when 
+      sharky.swim(); //shark will swim by when
+//    }
+//    if (keyPressed || mousePressed) {
+//      run = false;
     }
   }
   void check(Catcher cat) {

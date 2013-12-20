@@ -5,7 +5,7 @@ class StartScreen {
     trans = 100;
     r = 1;
     for (i = 0; i < amount; i++) {
-      loc[i] = new PVector(pmouseX, pmouseY);
+      loc[i] = new PVector(mouseX, mouseY);
     }
     //loc[i] = new PVector(width/2, height/2);
     //loc[i] = PVector.random2D();
