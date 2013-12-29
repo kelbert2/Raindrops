@@ -14,7 +14,7 @@ class Shark {
     bigy=425*scale;
   }
   void display() {
-    
+
     int chinx = 90*scale;
     int chiny = 75*scale;
     int finy = bigy-36*scale;
@@ -70,8 +70,9 @@ class Shark {
     text("GAME OVER", width/2, height/2);
     textSize(25);
     text("press any key to return", width/2, height/2 +50);
-    if (bigx> width+101){
+    if (bigx> width+101) {
       bigx=-101*scale; //appears back to swimming.
     }
   }
 }
+

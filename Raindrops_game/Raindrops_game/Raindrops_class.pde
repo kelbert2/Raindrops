@@ -47,7 +47,7 @@ class Raindrops {
   }
   void reset() { 
     if (loc.y > height-puddle) { //the water level will rise when raindrops are missed
-      print("drown   ");
+//      print("drown   ");
       update();
       puddle+=size/3; //depend on size
       //  loc[i].x = random(width);
@@ -58,14 +58,15 @@ class Raindrops {
     }
   }
 
-  void GameOver(Shark sharky) {
-    if (puddle >= 150) {
+  void GameOver(Shark sharky, Catcher cat) {
+//    if (puddle >= 175) {
       sharky.display();
-      sharky.swim(); //shark will swim by when
-      //    }
-      //    if (keyPressed || mousePressed) {
-      //      run = false;
-    }
+      sharky.swim(); //shark will swim by when water level is high enough
+//      cat.sink();
+      //      if (cat.loc.y != height-55) {
+      //        cat.loc.y+=5;
+      //      }
+//    }
   }
   void check(Catcher cat) {
 
