@@ -8,6 +8,8 @@ Raindrops[] drop = new Raindrops[amount];
 Timer time;
 StartScreen ss;
 boolean run;
+float puddle = 0;  
+float puddleheight;
 void setup() {
   size(500, 500);
   for   ( int i = 0; i < amount; i++) {
@@ -20,54 +22,48 @@ void setup() {
   run = false;
 }
 void draw() {
-  if (run == true){
-  //  if (millis() == 0){
-  //    ss.display();
-  //  }
-  //  if (millis()>1000) {
-  //    level+=1;
-  //  }
-  //  if (level == 0) {
-  //    background(0);
-  //    for (int i=0; i<circles.size(); i++) {
-  //      ExpandingCircle ec = (ExpandingCircle) circles.get(i);
-  //      ec.update();
-  //      ec.display();
-  //    }
-  //  }
-  //else {
-  background(170, 230, 245);
-  currentTime =millis();
-  timeChange = currentTime - oldTime;
-  if (timeChange >= 1000) {
-    oldTime = currentTime;
-    if (index < drop.length) {
-      index++;
+  if (run == true) {
+    background(170, 230, 245);
+    currentTime =millis();
+    timeChange = currentTime - oldTime;
+    if (timeChange >= 8000) {
+      oldTime = currentTime;
+      if (index < drop.length) {
+        index++;
+      }
     }
-  }
-  for (int i = 0; i < index; i++) {
-    drop[i].fall();
-    drop[i].display();
-    drop[i].check(bucket);
-    bucket.catchDrop(drop[i]);
-    drop[i].GameOver(fish);
-  }
-  bucket.display();
-  bucket.update();
-  time.display();
-  for (int i = 0; i < index; i++) {
-    drop[i].reset();
-  }
-  //    if (millis() - oldTime == 5000) {
-  //      oldTime = millis();
-  //      if (index < drop.length) {
-  //        index++;
-  //      }
-  } else {
+    for (int i = 0; i < index; i++) {
+      drop[i].fall();
+      drop[i].display();
+      drop[i].check(bucket);
+      bucket.catchDrop(drop[i]);
+      drop[i].GameOver(fish);
+    }
+    bucket.display();
+    bucket.update();
+    time.display();
+    for (int i = 0; i < index; i++) {
+      drop[i].reset();
+    }
+    noStroke();
+    fill(100, 200, 250, 100); //bucket and shark will show through. tras 20
+    rect(0, height-puddle, width, puddle);  //Working: why there are multiple rectangles rising at diff rates, but I like the way it looks, so let's pretend it's intentional
+    //each raindrop missed spawns a new rectangle   
+    //reset
+    if (puddle >= height) {
+      puddle = 150;
+    }
+  } 
+  else {
     ss.display();
   }
-  if(keyPressed || mousePressed){
-    run = true;
+}
+void keyPressed() {
+  run = !run;
+  if (run) {
+    for   ( int i = 0; i < amount; i++) {
+      drop[i] = new Raindrops();
+    }
   }
 }
 
