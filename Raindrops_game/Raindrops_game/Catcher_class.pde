@@ -7,6 +7,7 @@ class Catcher {
     loc = new PVector(mouseX, height - d - 5);
     d = 50;
     buck = loadImage("tool-tip-bucket.png");
+    int 
   }
   void display() {
     noStroke();

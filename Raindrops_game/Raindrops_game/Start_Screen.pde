@@ -1,17 +1,17 @@
 class StartScreen {
   int trans, r, i;
-  PVector loc[] = new PVector[amount];
+  PVector loc[] = new PVector[5];
   StartScreen() {
     trans = 100;
     r = 1;
-    for (i = 0; i < amount; i++) {
+    for (i = 0; i < 5; i++) {
       loc[i] = new PVector(mouseX, mouseY);
     }
     //loc[i] = new PVector(width/2, height/2);
     //loc[i] = PVector.random2D();
   }
   void display() {
-    for (i = 0; i < amount; i++) {
+    for (i = 0; i < 5; i++) {
       strokeWeight(30);
       noStroke();
       stroke(14, 25, 85, trans);

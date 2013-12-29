@@ -45,7 +45,7 @@ class Raindrops {
     vel.set(0, 0);
     acc.set(0, 0);
   }
-  void reset() { //email about rising even when catch it.
+  void reset() { 
     if (loc.y > height-puddle) { //the water level will rise when raindrops are missed
       print("drown   ");
       update();
@@ -56,8 +56,6 @@ class Raindrops {
     if (loc.x > width + size) { 
       loc.x = -2*size;
     }
-
-    //    puddleheight = height+size-puddle;
   }
 
   void GameOver(Shark sharky) {
