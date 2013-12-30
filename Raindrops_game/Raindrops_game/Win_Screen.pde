@@ -12,6 +12,7 @@ class Winner {
   Winner() {
   }
   void display() {
+    background(200);
     textAlign(CORNER);
     textSize(15);
     fill(random(255), random(50), random(50));

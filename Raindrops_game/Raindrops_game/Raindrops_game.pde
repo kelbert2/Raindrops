@@ -3,7 +3,7 @@ StartScreen ss;
 Catcher bucket;
 Shark fish;
 Winner winning;
-int amount = 100; //for Raindrops
+int amount = 200; //for Raindrops
 int index = 1;
 int timeChange, currentTime, oldTime;
 int level = 0;
@@ -93,4 +93,4 @@ void keyPressed() {
     notDone = true;
   }
 }
-}
+

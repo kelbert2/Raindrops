@@ -18,9 +18,9 @@ class Catcher {
         ypos = height - d- 5;
       }
     }
-    else{
+    else {
       if (ypos <= height -d- 5) {
-    ypos++;
+        ypos++;
       }
     }
   }
