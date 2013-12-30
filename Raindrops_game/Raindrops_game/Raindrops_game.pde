@@ -29,35 +29,35 @@ void setup() {
 void draw() {
   if (run == true) {
     background(170, 230, 245);
-    
-      currentTime =millis();
-      timeChange = currentTime - oldTime;
-      if (timeChange >= 2000) {
-        oldTime = currentTime;
-        if (index < drop.length) {
-          index++;
-        }
-      }
-      for (int i = 0; i < index; i++) {
-        drop[i].fall();
-        drop[i].display();
-        drop[i].check(bucket);
-        bucket.catchDrop(drop[i]);
-        bucket.catcherHeight();
 
-        drop[i].reset();
+    currentTime =millis();
+    timeChange = currentTime - oldTime;
+    if (timeChange >= 2000) {
+      oldTime = currentTime;
+      if (index < drop.length) {
+        index++;
       }
-      bucket.display();
-      bucket.update();
-      time.display();
-    
-    if (puddle >= 175) {
+    }
+    for (int i = 0; i < index; i++) {
+      drop[i].fall();
+      drop[i].display();
+      drop[i].check(bucket);
+      bucket.catchDrop(drop[i]);
+      bucket.catcherHeight();
+
+      drop[i].reset();
+    }
+    bucket.display();
+    bucket.update();
+    time.display();
+
+    if (puddle >= 200) {
       notDone = true;
-//      bucket.sink(); 
+      //      bucket.sink(); 
       for (int i = 0; i < index; i++) {
         drop[i].GameOver(fish, bucket);
       }
-//      bucket.update();
+      //      bucket.update();
       if (score>= 50) {
         winning.display();
       }
@@ -71,7 +71,7 @@ void draw() {
     rect(0, height-puddle+8, width, puddle); //now we have the three beautiful water levels
     rect(0, height-puddle+18, width, puddle); //originally, each drop would create a new rectangle, and I liked the look of that.
     if (puddle >= height) {
-      puddle = 175; //puddle height will stay high enough to display shark, but will not rise so much that it takes over the screen forever.
+      puddle = 200; //puddle height will stay high enough to display shark, but will not rise so much that it takes over the screen forever.
     }
   } 
   else {
@@ -93,4 +93,4 @@ void keyPressed() {
     notDone = true;
   }
 }
-
+}

@@ -1,21 +1,19 @@
 class Winner {
-  //   String p, w1, w2, w3, w4, w5, w6, w7, w8;
-  //    int l;
   String p= "press any key twice to restart   press any key twice to restart   press any key twice to restart   ";
-  String w1= "nice job";
-  String w2= "you caught it";
-  String w3= "yeah";
-  String w4= "such fun";
-  String w5= "partay now";
-  String w6= "fun fun fun";
-  String w7= "so magical";
-  String w8= "best of times";
+  String w1= "The drops of rain make a hole in the stone, not by violence, but by oft falling. - Lucretius";
+  String w2= "you caught it like the plague";
+  String w3= "hope you didn't schedule a parade";
+  String w4= "drop it like it's wet";
+  String w5= "drip drippity";
+  String w6= "rain rain come to stay";
+  String w7= "we all fall down";
+  String w8= "i love how the rain can hide my tears";
   int l = 0;
   Winner() {
   }
   void display() {
     textAlign(CORNER);
-    textSize(10);
+    textSize(15);
     fill(random(255), random(50), random(50));
     text(w1, random(width), random(height));
     fill(random(150), random(100), random(100));
