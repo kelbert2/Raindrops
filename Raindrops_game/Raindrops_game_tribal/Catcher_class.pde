@@ -39,13 +39,10 @@ class Catcher {
     textSize(20);
     textAlign(CENTER);
     text("Score: " + score, width-75, 50); //score will show
-    if (loc.dist(drop.loc) < d/2 + size/2) {
+    if (loc.dist(drop.loc) < d/2 + d/2) {
+      drop.loc.set(-width, height*10);
+      drop.vel.set(0, 0);
       score+=1; //score will increase when catches a drop
-      //      drop.loc.set(-width, height*10);
-      //      drop.vel.set(0, 0);
-    }  
-    if (loc.dist(drop.loc) > d/2 + size/2 && drop.loc.y > height-puddle ) {
-      puddle+=size/5;
     }
   }
   void sink() {

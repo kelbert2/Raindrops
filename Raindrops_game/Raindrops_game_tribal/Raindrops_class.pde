@@ -2,15 +2,17 @@ class Raindrops {
   int index = 1;
   PVector loc, vel, acc;
   //  float[] size = new float[amount];
-
+  float size;
   int i;
   int trans;
 
   Raindrops() {
     for ( i = 0; i < amount; i++) {
       loc = new PVector(random(-1*size, width+size), 0);
+      //      loc = new PVector(random(-1*size[1], width+size[i]), random(0, -1* size[i]));
       vel = new PVector(0, random(.5));
-      acc = new PVector(0, .01); 
+      acc = new PVector(0, .008); 
+      //      size[i] = random(10, 15);
       size = random(10, 15);
     }
   }
@@ -30,8 +32,10 @@ class Raindrops {
     ellipse(loc.x, loc.y, size, size);
   }
   void fall() {
+    //  for (i = 0; i < amount; i++) {
     loc.add(vel);
     vel.add(acc);
+    //  }
   }
   void update() {
     size = random(10, 14);
@@ -45,9 +49,9 @@ class Raindrops {
     if (loc.y > height-puddle) { //the water level will rise when raindrops are missed
       //      print("drown   ");
       update();
-      //puddle+=size/5; //depend on size
-        loc.x = random(width);
-        loc.y = -2*size;
+      puddle+=size/5; //depend on size
+      //  loc[i].x = random(width);
+      //  loc[i].y = -2*size[1];
     }
     if (loc.x > width + size) { 
       loc.x = -2*size;

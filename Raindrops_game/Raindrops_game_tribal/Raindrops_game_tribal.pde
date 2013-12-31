@@ -13,7 +13,7 @@ float puddle;
 Raindrops[] drop = new Raindrops[amount];
 int score = 0;
 int lives = 0;
-  float size;
+
 void setup() {
   size(500, 500);
   for   ( int i = 0; i < amount; i++) {
@@ -45,6 +45,7 @@ void draw() {
       drop[i].check(bucket);
       bucket.catchDrop(drop[i]);
       bucket.catcherHeight();
+
       drop[i].reset();
     }
     bucket.display();
@@ -52,13 +53,15 @@ void draw() {
     time.display();
 
     if (puddle >= 200) {
+      notDone = true;
+      //      bucket.sink(); 
       for (int i = 0; i < index; i++) {
         drop[i].GameOver(fish, bucket);
       }
-            bucket.update();
-    }
-    if (score>= 50) {
-      winning.display();
+      //      bucket.update();
+      if (score>= 50) {
+        winning.display();
+      }
     }
     //    for (int i = 0; i < index; i++) {
     //     drop[i].reset(); 
