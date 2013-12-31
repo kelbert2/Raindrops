@@ -2,26 +2,19 @@ class Catcher {
   int d, i;
   float ypos;
   PVector loc;
-  PImage buck, buckaroo;
+  PImage buck;
 
   Catcher() {
     loc = new PVector(mouseX, ypos);
     d = 50;
-    buck = loadImage("tool-tip-bucket.png");
+    buck = loadImage("tool-tip-bucket.png"); //look at that shiny lil buckaroo bucket.
   }
   void catcherHeight() { //catcher is high enough initally and then will rise with the water level
-    if (notDone) {
-      if (puddle >=60) {
-        ypos = height-puddle+10;
-      }
-      else {
-        ypos = height - d- 5;
-      }
+    if (puddle >=60) {
+      ypos = height-puddle+10;
     }
     else {
-      if (ypos <= height -d- 5) {
-        ypos++;
-      }
+      ypos = height - d- 5;
     }
   }
   void display() {
@@ -39,20 +32,9 @@ class Catcher {
     textSize(20);
     textAlign(CENTER);
     text("Score: " + score, width-75, 50); //score will show
-    if (loc.dist(drop.loc) < d/2 + size/2) {
-      score+=1; //score will increase when catches a drop
-      //      drop.loc.set(-width, height*10);
-      //      drop.vel.set(0, 0);
-    }  
     if (loc.dist(drop.loc) > d/2 + size/2 && drop.loc.y > height-puddle ) {
-      puddle+=size/5;
+      puddle+=size/2; //puddle will rise according to the size of the missed raindrop.
     }
-  }
-  void sink() {
-    //        if (ypos <= height -d- 5) {
-    ypos++;
-    //    }
-    loop();
   }
 }
 

@@ -9,8 +9,8 @@ class Shark {
     skin = color(150);
     //need to make
     loc =new PVector(0, 0); 
-    scale=1; //working: puts it way up high but when bigs not *scale, not shark-shaped.
-    bigx=-101*scale; //original
+    scale=1;
+    bigx=-101*scale; //original location
     bigy=425*scale;
   }
   void display() {
@@ -43,7 +43,7 @@ class Shark {
     vertex(finx, finy);
     bezierVertex(finx*3/4, finy+10*scale, finx-10*scale, finy-5*scale, finx-50*scale, finy-50*scale);
     bezierVertex(finx+25*scale, finy-50*scale, finx+50*scale, finy, finx+50*scale, finy);
-    endShape(); //this stretches when shark swims right. Working: bexier curves are already complicated.
+    endShape(); //this stretches when shark swims right. I won't try to mess with this anymore because bexier curves are already complicated.
     //fin
     beginShape();
     arc(fin1x, fin1y, 80*scale, 40*scale, -1*QUARTER_PI, HALF_PI+THIRD_PI/2, CHORD);
@@ -64,7 +64,7 @@ class Shark {
     endShape();
   }
   void swim() {
-    bigx++; //will move right. working: speed is not constant. This seems alright though.
+    bigx++; //will swim right.
     textSize(50);
     textAlign(CENTER);
     text("GAME OVER", width/2, height/2);

@@ -11,9 +11,9 @@ boolean run;
 boolean notDone;
 float puddle;
 Raindrops[] drop = new Raindrops[amount];
-int score = 0;
+int score;
 int lives = 0;
-  float size;
+float size;
 void setup() {
   size(500, 500);
   for   ( int i = 0; i < amount; i++) {
@@ -26,20 +26,21 @@ void setup() {
   run = false;
   puddle = 0;
   winning = new Winner();
+  score =0;
 }
 void draw() {
-  if (run == true) {
+  if (run == true) { //when keyPressed, game may begin.
     background(170, 230, 245);
 
     currentTime =millis();
     timeChange = currentTime - oldTime;
-    if (timeChange >= 2000) {
-      oldTime = currentTime;
+    if (timeChange >= 1000) {
+      oldTime = currentTime; //Drops fall according to interval.
       if (index < drop.length) {
         index++;
       }
     }
-    for (int i = 0; i < index; i++) {
+    for (int i = 0; i < index; i++) { //drops fall one by one.
       drop[i].fall();
       drop[i].display();
       drop[i].check(bucket);
@@ -47,22 +48,19 @@ void draw() {
       bucket.catcherHeight();
       drop[i].reset();
     }
-    bucket.display();
-    bucket.update();
+    bucket.display(); //All this shows up.
+    bucket.update(); //Catcher will keep up with mouse because void draw loops.
     time.display();
 
     if (puddle >= 200) {
       for (int i = 0; i < index; i++) {
         drop[i].GameOver(fish, bucket);
       }
-            bucket.update();
+      bucket.update();
     }
-    if (score>= 50) {
-      winning.display();
+    if (score>= 25) {
+      winning.display(); //a score of 25 will win the game.
     }
-    //    for (int i = 0; i < index; i++) {
-    //     drop[i].reset(); 
-    //    }
     noStroke();
     fill(100, 200, 250, 100); //bucket and shark will show through the water.
     rect(0, height-puddle, width, puddle); 
@@ -76,7 +74,7 @@ void draw() {
     ss.display(); //shows start screen, as seen under its class until keyPressed (see below)
   }
 }
-void keyPressed() {
+void keyPressed() { //Takes back to or lets leave Start Screen.
   run = !run;
   if (run) { //reinitializes everything like under setup()
     for   ( int i = 0; i < amount; i++) {

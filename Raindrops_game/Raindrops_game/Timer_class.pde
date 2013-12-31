@@ -5,11 +5,11 @@ class Timer {
     stroke(40, 205, 205);
     textSize(20);
     textAlign(CENTER);
-    text("Time: " + millis(), 75, 50);
-    textSize(15);
+    text("Time: " + millis(), 75, 50); //shows time elapsed since game was opened
+    textSize(15); //including time spent on start screen.
     textAlign(CORNER);
     if (millis() >= 150000) {
-      text("oh would you look at the time", 25, 75);
+      text("oh would you look at the time", 25, 75); //clock has an attitude.
     }
     textSize(10);
     textAlign(CORNER);
